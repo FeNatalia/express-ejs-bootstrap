@@ -1,0 +1,68 @@
+{
+    "soccer": {
+        "name": "Soccer",
+        "subscribers": 800000,
+        "description" : "The football subreddit, news, results and discussion",
+        "posts": [
+            {
+                "title": "Practice for kids",
+                "author": "Jessica",
+                "img": "https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29jY2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Useful videos for everyone",
+                "author": "Macs",
+                "img": "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHNvY2NlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Watch the game tomorrow",
+                "author": "Lean",
+                "img": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNvY2NlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            }
+        ]
+    },
+    "food": {
+        "name": "Food",
+        "subscribers": 78383838,
+        "description" : "The food subreddit, recipes, photos and discussion",
+        "posts": [
+            {
+                "title": "Cake for kids",
+                "author": "Lars",
+                "img": "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29va2luZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Useful videos for cooking",
+                "author": "Mia",
+                "img": "https://images.unsplash.com/photo-1556911261-6bd341186b2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Watch the food competition tomorrow",
+                "author": "Lina",
+                "img": "https://images.unsplash.com/photo-1605522469906-3fe226b356bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            }
+        ]
+    },
+    "fashion": {
+        "name": "Fashion",
+        "subscribers": 4565757,
+        "description" : "The fashion subreddit, photoshoots, catwalks and interviews",
+        "posts": [
+            {
+                "title": "Parada for kids",
+                "author": "Pia",
+                "img": "https://images.unsplash.com/photo-1537832816519-689ad163238b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Useful fashion tips for workers",
+                "author": "Reana",
+                "img": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            },
+            {
+                "title": "Watch the catwalk competition tomorrow",
+                "author": "Rish",
+                "img": "https://images.unsplash.com/photo-1572705824045-3dd0c9a47945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            }
+        ]
+    }
+}
