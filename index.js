@@ -12,14 +12,17 @@ app.set("views", path.join(__dirname, "/views"));
 
 const posts = [
   {
+    postId: 1,
     username: "Ataskaan",
     post: "How to get organized",
   },
   {
+    postId: 2,
     username: "Nina",
     post: "How to practice chinese",
   },
   {
+    postId: 3,
     username: "Rex",
     post: "10 reasons to wake up early",
   },
@@ -30,18 +33,25 @@ app.get("/", (req, res) => {
 });
 
 app.get("/posts", (req, res) => {
-  res.render("posts", { posts, name: "Posts" });
+  res.render("posts/index", { posts, name: "Posts" });
+});
+
+app.get("/posts/new", (req, res) => {
+  res.render("posts/new", { posts, name: "Add New" });
 });
 
 app.post("/posts", (req, res) => {
+  const { username, post } = req.body;
   console.log(req.body);
-  res.send(
-    `add a post with title: ${req.body.title}, and body: ${req.body.body}`
-  );
+  posts.push({ username, post });
+  res.redirect("/posts");
 });
 
-app.put("/posts/:postId", (req, res) => {
-  res.send("edit the posts");
+app.get("/posts/:postId", (req, res) => {
+  const { postId } = req.params;
+  const post = posts.find((e) => e.postId === parseInt(postId));
+  console.log(post);
+  res.render("posts/show", { name: "Post", post });
 });
 
 app.delete("/posts/:postId", (req, res) => {

@@ -1,0 +1,14 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <h3>Post specifics</h3>
+            <p><%= post.username%> wrote : "<%=post.post%>"  </p>
+            <button class="btn btn-secondary">
+                <a class="nav-link active" aria-current="page" href="/posts">
+                    Go Back
+                </a>
+            </button>
+        </div>
+    </body>
+<%-  include('../partials/footer') %> 
