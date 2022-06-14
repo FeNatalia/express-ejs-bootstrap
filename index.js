@@ -4,12 +4,48 @@ const path = require("path");
 const redditData = require("./data/data.json");
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
+const posts = [
+  {
+    username: "Ataskaan",
+    post: "How to get organized",
+  },
+  {
+    username: "Nina",
+    post: "How to practice chinese",
+  },
+  {
+    username: "Rex",
+    post: "10 reasons to wake up early",
+  },
+];
+
 app.get("/", (req, res) => {
   res.render("home", { name: "Home Page" });
+});
+
+app.get("/posts", (req, res) => {
+  res.render("posts", { posts, name: "Posts" });
+});
+
+app.post("/posts", (req, res) => {
+  console.log(req.body);
+  res.send(
+    `add a post with title: ${req.body.title}, and body: ${req.body.body}`
+  );
+});
+
+app.put("/posts/:postId", (req, res) => {
+  res.send("edit the posts");
+});
+
+app.delete("/posts/:postId", (req, res) => {
+  res.send("delete the posts");
 });
 
 app.get("/cats", (req, res) => {
