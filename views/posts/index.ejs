@@ -2,9 +2,9 @@
 <%-  include('../partials/nav') %> 
     <body>
         <div class="container">
-            <nav class="navbar bg-white" action="http://localhost:3000/posts" method="get">
+            <nav class="navbar bg-white" action="/posts" method="get">
                 <div class="container-fluid">
-                    <form action="http://localhost:3000/posts" method="get" class="d-flex" >
+                    <form action="/posts" method="get" class="d-flex" >
                         <input type="search" name="title" class="form-control me-2" placeholder="Search post" aria-label="Search" >
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
@@ -24,7 +24,7 @@
                             <div class="card-body">
                             <h5 class="card-title"><%= post.title %></h5>
                             <p class="card-text">by <%= post.username %></p>
-                            <a href="/posts/<%= post.postId%> " class="btn btn-primary">Go to the post</a>
+                            <a href="/posts/<%= post.postId%>" class="btn btn-primary">Go to the post</a>
                             </div>
                         </div>
                     <% } %> 

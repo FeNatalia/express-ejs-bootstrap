@@ -1,0 +1,18 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <h3 class="mt-2">Edit Post</h3>
+            <p><%= post.title%><strong> by <%= post.username%></strong></p>
+            <form method="POST" action="/posts/<%= post.postId%>?_method=PATCH">
+                <textarea name="post" class="form-control" cols="30" rows="10"><%=post.post%></textarea>
+                <button class="btn btn-primary mt-2" type="submit">Save</button>
+            </form>
+            <button class="btn btn-secondary mt-2">
+                <a class="nav-link active" aria-current="page" href="/posts">
+                    Go Back
+                </a>
+            </button>
+        </div>
+    </body>
+<%-  include('../partials/footer') %> 

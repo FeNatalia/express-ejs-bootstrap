@@ -2,14 +2,15 @@
 <%-  include('../partials/nav') %> 
     <body>
         <div class="container">
-            <h3><%= post.title%></h3>
+            <h3 class="mt-2"><%= post.title%></h3>
             <p><strong>by <%= post.username%></strong></p>
             <p><%=post.post%></p>
-            <button class="btn btn-secondary">
-                <a class="nav-link active" aria-current="page" href="/posts">
-                    Go Back
-                </a>
-            </button>
+            <a href="/posts/<%= post.postId%>/edit" class="btn btn-primary">
+                Edit the post
+            </a>
+            <a class="btn btn-secondary" aria-current="page" href="/posts">
+                Go Back
+            </a>
         </div>
     </body>
 <%-  include('../partials/footer') %> 

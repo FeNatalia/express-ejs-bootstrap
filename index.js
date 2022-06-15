@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const methodOverride = require("method-override");
 const { v4: uuidv4 } = require("uuid");
 const redditData = require("./data/data.json");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -32,6 +34,7 @@ const posts = [
   },
 ];
 
+// Post routes
 app.get("/", (req, res) => {
   res.render("home", { name: "Home Page" });
 });
@@ -44,18 +47,24 @@ app.get("/posts/new", (req, res) => {
   res.render("posts/new", { posts, name: "Add New" });
 });
 
+app.get("/posts/:postId", (req, res) => {
+  const { postId } = req.params;
+  const post = posts.find((e) => e.postId === postId);
+  res.render("posts/show", { name: "Post", post });
+});
+
+app.get("/posts/:postId/edit", (req, res) => {
+  const { postId } = req.params;
+  const post = posts.find((e) => e.postId === postId);
+  res.render("posts/edit", { name: "Edit", post });
+});
+
 app.post("/posts", (req, res) => {
   const { username, title, post } = req.body;
   const postId = uuidv4();
   console.log(req.body);
   posts.push({ username, title, post, postId });
   res.redirect("/posts");
-});
-
-app.get("/posts/:postId", (req, res) => {
-  const { postId } = req.params;
-  const post = posts.find((e) => e.postId === postId);
-  res.render("posts/show", { name: "Post", post });
 });
 
 app.patch("/posts/:postId", (req, res) => {
@@ -70,11 +79,7 @@ app.delete("/posts/:postId", (req, res) => {
   res.send("delete the posts");
 });
 
-app.get("/cats", (req, res) => {
-  const cats = ["Slipsen", "Cookie", "Baldrick"];
-  res.render("cats", { name: "Cat Names", cats });
-});
-
+//Just Practice Routes
 app.get("/random", (req, res) => {
   const num = Math.floor(Math.random() * 1000) + 1;
   res.render("random", { num, name: "Random Number" });
