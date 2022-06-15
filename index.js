@@ -15,17 +15,20 @@ const posts = [
   {
     postId: "1",
     username: "Ataskaan",
-    post: "How to get organized",
+    title: "How to get organized",
+    post: "1. Lorem ipsum, 2. Lorem ipsum 3. Blahblahblah",
   },
   {
     postId: "2",
     username: "Nina",
-    post: "How to practice chinese",
+    title: "How to practice chinese",
+    post: "11. Lorem ipsum, 22. Lorem ipsum 33. Blahblahblah",
   },
   {
     postId: "3",
     username: "Rex",
-    post: "10 reasons to wake up early",
+    title: "10 reasons to wake up early",
+    post: "111. Lorem ipsum, 222. Lorem ipsum 333. Blahblahblah",
   },
 ];
 
@@ -42,10 +45,10 @@ app.get("/posts/new", (req, res) => {
 });
 
 app.post("/posts", (req, res) => {
-  const { username, post } = req.body;
+  const { username, title, post } = req.body;
   const postId = uuidv4();
   console.log(req.body);
-  posts.push({ username, post, postId });
+  posts.push({ username, title, post, postId });
   res.redirect("/posts");
 });
 

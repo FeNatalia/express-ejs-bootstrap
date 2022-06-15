@@ -2,8 +2,9 @@
 <%-  include('../partials/nav') %> 
     <body>
         <div class="container">
-            <h3>Post specifics</h3>
-            <p><%= post.username%> wrote : "<%=post.post%>"  </p>
+            <h3><%= post.title%></h3>
+            <p><strong>by <%= post.username%></strong></p>
+            <p><%=post.post%></p>
             <button class="btn btn-secondary">
                 <a class="nav-link active" aria-current="page" href="/posts">
                     Go Back
