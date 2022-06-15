@@ -13,7 +13,7 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
-const posts = [
+let posts = [
   {
     postId: "1",
     username: "Ataskaan",
@@ -62,7 +62,6 @@ app.get("/posts/:postId/edit", (req, res) => {
 app.post("/posts", (req, res) => {
   const { username, title, post } = req.body;
   const postId = uuidv4();
-  console.log(req.body);
   posts.push({ username, title, post, postId });
   res.redirect("/posts");
 });
@@ -72,11 +71,13 @@ app.patch("/posts/:postId", (req, res) => {
   const newPostText = req.body.post;
   const post = posts.find((e) => e.postId === postId);
   post.post = newPostText;
-  res.render("posts/show", { name: "Post", post });
+  res.redirect(`/posts/${post.postId}`);
 });
 
 app.delete("/posts/:postId", (req, res) => {
-  res.send("delete the posts");
+  const { postId } = req.params;
+  posts = posts.filter((e) => e.postId !== postId);
+  res.redirect("/posts");
 });
 
 //Just Practice Routes
