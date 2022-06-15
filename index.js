@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
 const redditData = require("./data/data.json");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -12,17 +13,17 @@ app.set("views", path.join(__dirname, "/views"));
 
 const posts = [
   {
-    postId: 1,
+    postId: "1",
     username: "Ataskaan",
     post: "How to get organized",
   },
   {
-    postId: 2,
+    postId: "2",
     username: "Nina",
     post: "How to practice chinese",
   },
   {
-    postId: 3,
+    postId: "3",
     username: "Rex",
     post: "10 reasons to wake up early",
   },
@@ -42,14 +43,15 @@ app.get("/posts/new", (req, res) => {
 
 app.post("/posts", (req, res) => {
   const { username, post } = req.body;
+  const postId = uuidv4();
   console.log(req.body);
-  posts.push({ username, post });
+  posts.push({ username, post, postId });
   res.redirect("/posts");
 });
 
 app.get("/posts/:postId", (req, res) => {
   const { postId } = req.params;
-  const post = posts.find((e) => e.postId === parseInt(postId));
+  const post = posts.find((e) => e.postId === postId);
   console.log(post);
   res.render("posts/show", { name: "Post", post });
 });
