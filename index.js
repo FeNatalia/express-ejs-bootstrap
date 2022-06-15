@@ -80,38 +80,17 @@ app.delete("/posts/:postId", (req, res) => {
   res.redirect("/posts");
 });
 
-//Just Practice Routes
-app.get("/random", (req, res) => {
-  const num = Math.floor(Math.random() * 1000) + 1;
-  res.render("random", { num, name: "Random Number" });
-});
-
-app.get("/r/:subreddit", (req, res) => {
-  const { subreddit } = req.params;
-  const data = redditData[subreddit];
-  if (data) {
-    res.render("subreddit", { ...data });
-  } else {
-    res.render("notfound", { subreddit });
-  }
-});
-
-app.get("/r/:subreddit/:postId", (req, res) => {
-  const { subreddit, postId } = req.params;
-  res.send(`<h1>Viewing ${postId} in the ${subreddit} subreddit</h1>`);
-});
-
-app.get("/search", (req, res) => {
-  const { q } = req.query;
-  if (!q) {
-    res.send("nothing found if nothing searched");
-  }
-  console.log(q);
-  res.send(`<h1>Search results for ${q}</h1>`);
-});
+// app.get("/search", (req, res) => {
+//   const { q } = req.query;
+//   if (!q) {
+//     res.send("nothing found if nothing searched");
+//   }
+//   console.log(q);
+//   res.send(`<h1>Search results for ${q}</h1>`);
+// });
 
 app.get("*", (req, res) => {
-  res.send({ message: "There is no such path" });
+  res.render("notfound", { name: "Not Found" });
 });
 
 app.listen(3000, () => {
