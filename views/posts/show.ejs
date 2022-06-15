@@ -1,0 +1,21 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <h3 class="mt-2"><%= post.title%></h3>
+            <p><strong>by <%= post.username%></strong></p>
+            <p><%=post.post%></p>
+            <a href="/posts/<%= post.postId%>/edit" class="btn btn-primary mt-2">
+                Edit the post
+            </a>
+            <form method="POST" action="/posts/<%= post.postId%>?_method=DELETE">
+                <button class="btn btn-danger mt-2" type="submit">
+                    Delete the post
+                </button>
+            </form>
+            <a class="btn btn-secondary mt-2" href="/posts">
+                Go Back
+            </a>
+        </div>
+    </body>
+<%-  include('../partials/footer') %> 
