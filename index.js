@@ -55,7 +55,14 @@ app.post("/posts", (req, res) => {
 app.get("/posts/:postId", (req, res) => {
   const { postId } = req.params;
   const post = posts.find((e) => e.postId === postId);
-  console.log(post);
+  res.render("posts/show", { name: "Post", post });
+});
+
+app.patch("/posts/:postId", (req, res) => {
+  const { postId } = req.params;
+  const newPostText = req.body.post;
+  const post = posts.find((e) => e.postId === postId);
+  post.post = newPostText;
   res.render("posts/show", { name: "Post", post });
 });
 
