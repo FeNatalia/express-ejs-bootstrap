@@ -16,15 +16,15 @@
                 </div>
             </nav>
             <h2>All posts</h2>
-            <div class="container">
+            <div class="">
                 <div class="row">
                     <% for(let post of posts) { %> 
-                        <div class="card mt-2 me-2" style="width: 18rem;">
-                            <img src="<%= post.photo %>" class="card-img-top" alt="sample image">
+                        <div class="card mt-2 me-2" style="width: 18rem; padding: 0">
+                            <img class="card-img-top"  src="<%= post.photo %>"  alt="sample image">                  
                             <div class="card-body">
                             <h5 class="card-title"><%= post.title %></h5>
-                            <p class="card-text">by <%= post.username %></p>
-                            <a href="/posts/<%= post.postId%>" class="btn btn-primary">Go to the post</a>
+                            <p class="card-text">by <%= post.username %> in <strong><%=post.category%></strong></p>
+                            <a href="/posts/<%= post._id%>" class="btn btn-primary">Go to the post</a>
                             </div>
                         </div>
                     <% } %> 

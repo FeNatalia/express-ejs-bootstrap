@@ -4,12 +4,12 @@
         <div class="container">
             <img src="<%= post.photo %>" class="img-fluid" alt="sample image">
             <h3 class="mt-2"><%= post.title%></h3>
-            <p><strong>by <%= post.username%></strong></p>
+            <p><strong>by <%= post.username%></strong> in <%= post.category %> category</p> 
             <p><%=post.post%></p>
-            <a href="/posts/<%= post.postId%>/edit" class="btn btn-primary mt-2">
+            <a href="/posts/<%= post._id%>/edit" class="btn btn-primary mt-2">
                 Edit the post
             </a>
-            <form method="POST" action="/posts/<%= post.postId%>?_method=DELETE">
+            <form method="POST" action="/posts/<%= post._id%>?_method=DELETE">
                 <button class="btn btn-danger mt-2" type="submit">
                     Delete the post
                 </button>
