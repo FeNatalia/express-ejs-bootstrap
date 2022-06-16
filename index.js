@@ -16,18 +16,24 @@ app.set("views", path.join(__dirname, "/views"));
 let posts = [
   {
     postId: "1",
+    photo:
+      "https://images.unsplash.com/photo-1621619856624-42fd193a0661?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdyYXl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     username: "Ataskaan",
     title: "How to get organized",
     post: "1. Lorem ipsum, 2. Lorem ipsum 3. Blahblahblah",
   },
   {
     postId: "2",
+    photo:
+      "https://images.unsplash.com/photo-1648737119359-510d4f551382?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     username: "Nina",
     title: "How to practice chinese",
     post: "11. Lorem ipsum, 22. Lorem ipsum 33. Blahblahblah",
   },
   {
     postId: "3",
+    photo:
+      "https://images.unsplash.com/photo-1655326525660-3a68693a478a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     username: "Rex",
     title: "10 reasons to wake up early",
     post: "111. Lorem ipsum, 222. Lorem ipsum 333. Blahblahblah",
@@ -60,9 +66,9 @@ app.get("/posts/:postId/edit", (req, res) => {
 });
 
 app.post("/posts", (req, res) => {
-  const { username, title, post } = req.body;
+  const { username, title, post, photo } = req.body;
   const postId = uuidv4();
-  posts.push({ username, title, post, postId });
+  posts.push({ username, title, post, postId, photo });
   res.redirect("/posts");
 });
 

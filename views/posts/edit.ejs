@@ -4,6 +4,7 @@
         <div class="container">
             <h3 class="mt-2">Edit Post</h3>
             <p><%= post.title%><strong> by <%= post.username%></strong></p>
+            <img src="<%= post.photo %>" class="img-fluid"  alt="sample image">
             <form method="POST" action="/posts/<%= post.postId%>?_method=PATCH">
                 <textarea name="post" class="form-control" cols="30" rows="10"><%=post.post%></textarea>
                 <button class="btn btn-primary mt-2" type="submit">Save</button>
