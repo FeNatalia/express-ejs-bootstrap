@@ -3,8 +3,6 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
-
 const Post = require("./models/post");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -32,8 +30,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/posts", async (req, res) => {
-  const posts = await Post.find({});
-  res.render("posts/index", { posts, name: "Posts" });
+  const { category } = req.query;
+  if (category && category !== "All") {
+    const posts = await Post.find({ category });
+    res.render("posts/index", { posts, name: "Posts", category, categories });
+  } else {
+    const posts = await Post.find({});
+    res.render("posts/index", {
+      posts,
+      name: "Posts",
+      category: "All",
+      categories,
+    });
+  }
 });
 
 app.get("/posts/new", (req, res) => {
